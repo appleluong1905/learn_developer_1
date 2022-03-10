@@ -6,12 +6,13 @@
 <body>
 	<h1>Register form</h1>
 	<?php
-		$errUsername = $errPhone = $errEmail = $errGender = "";
-		$userName = $email = $phone = "";
+		$errUsername = $errPhone = $errEmail = $errGender = $errCity = "";
+		$userName = $email = $phone = $city = "";
 		if (isset($_POST['username'])) {
 			$userName = $_POST['username'];
 			$email = $_POST['email'];
 			$phone = $_POST['phone'];
+			$city = $_POST['city'];
 			$gender = "";
 
 			if (isset($_POST['gender'])) {
@@ -27,6 +28,9 @@
 			}
 			if ($_POST['phone'] == '') {
 				$errPhone = "Please input your phone";
+			}
+			if ($_POST['city'] == '') {
+				$errCity = "Please input your city";
 			}
 		}
 	?>
@@ -53,11 +57,12 @@
 		</p>
 		<p>City*: 
 			<select name="city">
-				<option value="">Please choose</option>
-				<option value="Da Nang"> Đà Nẵng</option>
-				<option value="Hue"> Huế</option>
-				<option value="Quang Tri"> Quảng Trị</option>
+				<option value="" <?php echo ($city == '')?'selected':'';?>>Please choose</option>
+				<option value="Da Nang" <?php echo ($city == 'Da Nang')?'selected':'';?>> Đà Nẵng</option>
+				<option value="Hue" <?php echo ($city == 'Hue')?'selected':'';?>> Huế</option>
+				<option value="Quang Tri" <?php echo ($city == 'Quang Tri')?'selected':'';?>> Quảng Trị</option>
 			</select>
+			<?php echo $errCity;?>
 		</p>
 		<p>Avatar*: 
 			<input type="file" name="avatar">
