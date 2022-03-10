@@ -48,6 +48,20 @@
 			<input type="radio" name="gender" value="female" <?php echo ($gender == 'female')?'checked':'';?>> Female
 			<?php echo $errGender;?>
 		</p>
+		<p>Birthday*: 
+			<input type="date" name="birthday">
+		</p>
+		<p>City*: 
+			<select name="city">
+				<option value="">Please choose</option>
+				<option value="Da Nang"> Đà Nẵng</option>
+				<option value="Hue"> Huế</option>
+				<option value="Quang Tri"> Quảng Trị</option>
+			</select>
+		</p>
+		<p>Avatar*: 
+			<input type="file" name="avatar">
+		</p>
 		<p>
 			<input type="submit" name="register" value="Register">
 		</p>
